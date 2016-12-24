@@ -18,8 +18,6 @@ class App extends Component {
      })
    }
   render() {
-    console.log('filterText state from parent components', this.state.filterText)
-
     return (
       <div>
         <Search
