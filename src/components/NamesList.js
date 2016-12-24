@@ -14,9 +14,15 @@ class NamesList extends Component {
      })
 
      return (
+       <div>
+       <p>
+       filterText value is: {this.props.filterText}
+       </p>
        <ul>
          {nameList}
        </ul>
+       </div>
+
      );
 
    }

@@ -4,21 +4,21 @@ import React, { Component } from 'react';
   class Search extends Component {
 
     filterUpdate(){
-      const val = this .myValue.value
-      console.log(val)
+      const val = this.myValue.value
+      this.props.filterUpdate(val)
     }
 
     render(){
       return (
         <header>
-        <form>
-        <input
-          type="text"
-          ref= {(value) => this.myValue = value }
-          placeholder="Type to filter.."
-          onChange={this.filterUpdate.bind(this)}
-          />
-        </form>
+          <form>
+          <input
+            type="text"
+            ref={(value) => {this.myValue=value}}
+            placeholder="Type to filter.."
+            onChange={this.filterUpdate.bind(this)}
+            />
+            </form>
         </header>
       )
     }
