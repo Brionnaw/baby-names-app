@@ -1,9 +1,21 @@
 import React from 'react';
 
-export default () => {
+export default ({data, favourites}) => {
+  const namesList = favourites.map(id =>{
+    const { name, sex } =data[id]
+    return(
+      <li key={id} className={sex}>{name}</li>
+    )
+  })
   return (
-    <p>
+    <div className="favourites">
+    <h4>
     click on a name to shortlist it ..
-    </p>
+     </h4>
+     <ul>
+     {namesList}
+     </ul>
+    </div>
+
   )
 }

@@ -8,15 +8,26 @@ class App extends Component {
    constructor(props) {
      super(props)
      this.state = {
-        filterText: ''
+        filterText: '',
+        favourites:[],
      }
    }
-
+   //update search value
    filterUpdate(value){
      this.setState({
        filterText:value
      })
    }
+
+   addFavourite(id){
+     const favList =this.state.favourites.concat([id])
+     this.setState({
+       favourites:favList
+     })
+   }  // adding names to shortlist
+
+
+
   render() {
     return (
       <div>
@@ -26,9 +37,15 @@ class App extends Component {
 
         />
           <main>
-          <ShortList />
+          <ShortList
+          favourites={this.state.favourites}
+          data={this.props.data}
+          />
+
           <NamesList data={this.props.data}
           filterText={this.state.filterText}
+          addFavourite={this.addFavourite.bind(this)}
+
           />
           <Credit/>
           </main>

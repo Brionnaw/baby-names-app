@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default({data, filterText}) => {
+export default({data, filterText, addFavourite}) => {
 
     const nameList = data
     .filter(name => {
@@ -9,7 +9,13 @@ export default({data, filterText}) => {
     })
     .map(name => {
        return (
-         <li key={name.id} className={name.sex}>{name.name}</li>
+         <li
+
+         key={name.id}
+         className={name.sex}
+         onClick={() => addFavourite(name.id)}
+         >
+         {name.name}</li>
        )
      })
 
